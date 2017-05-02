@@ -1,11 +1,9 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-from six.moves import xrange
 import pickle
 import tensorflow as tf
 import numpy as np
-import os
 data_path = ".\\cifar10python"
 IMAGE_SIZE = 32
 
