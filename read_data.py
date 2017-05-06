@@ -1,9 +1,18 @@
+# Ekrem Çetinkaya S004228
+
+# This will be used for reading cifar10 data
+# This script is modified from :
+# https://github.com/renatolfc/image-classification/blob/master/helper.py
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 import pickle
 import tensorflow as tf
 import numpy as np
+
+# Specify the path to cifar10python dataset obtained from:
+# http://www.cs.toronto.edu/~kriz/cifar.html
 data_path = ".\\cifar10python"
 IMAGE_SIZE = 32
 
@@ -39,11 +48,6 @@ def read_cifar10(filename_queue):
 
   return result
 
-def _load_label_names():
-
-    return ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
-
-
 def load_cfar10_batch(cifar10_dataset_folder_path, batch_id):
 
     with open(cifar10_dataset_folder_path + '/data_batch_' + str(batch_id), mode='rb') as file:
@@ -55,9 +59,7 @@ def load_cfar10_batch(cifar10_dataset_folder_path, batch_id):
     return images, labels
 
 def _preprocess_and_save(normalize, one_hot_encode, images, labels, filename):
-    """
-    Preprocess data and save it to file
-    """
+    # Preprocess data and save it to file
     images = normalize(images)
     labels = one_hot_encode(labels)
 
@@ -118,7 +120,7 @@ def batch_images_labels(images, labels, batch_size):
 
 
 def load_preprocess_training_batch(batch_id, batch_size):
-    #Load the Preprocessed Training data and return them in batches of <batch_size> or less
+    # Load the Preprocessed Training data and return them in batches of <batch_size> or less
     filename = 'preprocess_batch_' + str(batch_id) + '.p'
     images, labels = pickle.load(open(filename, mode='rb'))
 
