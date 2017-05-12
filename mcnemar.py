@@ -1,4 +1,3 @@
-# Ekrem Çetinkaya S004228
 # McNemar test for 2 CNN
 
 import numpy as np
