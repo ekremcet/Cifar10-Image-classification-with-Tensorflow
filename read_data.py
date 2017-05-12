@@ -1,5 +1,3 @@
-# Ekrem Çetinkaya S004228
-
 # This will be used for reading cifar10 data
 # This script is modified from :
 # https://github.com/renatolfc/image-classification/blob/master/helper.py
